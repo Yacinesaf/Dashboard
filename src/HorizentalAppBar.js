@@ -2,7 +2,7 @@ import React from 'react'
 import { Toolbar, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 function HorizentalAppBar() {
@@ -16,7 +16,7 @@ function HorizentalAppBar() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <ChatBubbleIcon fontSize='default' style={{ color: '#b8bcbf' }} />
-              <NotificationsIcon fontSize='default' style={{ color: '#b8bcbf', paddingRight: 20, paddingLeft: 20 }} />
+              <NotificationsActiveIcon fontSize='default' style={{ color: '#b8bcbf', paddingRight: 20, paddingLeft: 20 }} />
               <AccountCircleIcon fontSize='large' style={{ color: '#b8bcbf' }} />
             </div>
           </Grid>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Drawer, makeStyles } from '@material-ui/core';
+import { Drawer } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 

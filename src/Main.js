@@ -1,27 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import VerticalAppBar from './VerticalAppBar'
 import { Grid } from '@material-ui/core';
 import HorizentalAppBar from './HorizentalAppBar';
-import MenuComponent from './MenuComponent';
-
+import UsersRevenue from './UsersRevenue'
+import SplatterChart from './SplatterChart'
+import DiscChart from './DiscChart'
+import LineChart from './LineChart';
 
 
 
 function Main() {
+
+  const [period, setPeriod] = useState('Last 7 days')
+  const type = ['Revenue', 'New Users']
+  const updatingPeriod = (e) => {
+    setPeriod(e)
+  }
+
+  let p = 40;
+  const titles = ['Region Share', 'Performance']
+  const imgs = [1,2]
+
   return (
     <div >
       <HorizentalAppBar />
-      <Grid container style={{ backgroundColor: '#f2f2f2', height: 'calc(100vh - 64px)', padding: 15 }}>
+      <Grid container style={{ backgroundColor: '#f2f2f2', height: 'calc(100vh - 64px)', padding: `${p}px` }}>
         <Grid item xs={4}>
           <Grid container>
-            <Grid item xs={12} style={{ padding: 10, height: 'calc((100vh - (64px + 15px * 2)) / 3)' }}>
-              <MenuComponent />
+          {type.map((x, i) => (
+            <Grid item xs={12} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
+              <UsersRevenue key={i} type={x} period={period} updatingPeriod={updatingPeriod} />
             </Grid>
-            <Grid item xs={12} style={{ padding: 10, height: 'calc((100vh - 94px) / 3)' }}>
-              <MenuComponent />
-            </Grid>
-            <Grid item xs={12} style={{ padding: 10, height: 'calc((100vh - 94px) / 3)' }}>
-              <MenuComponent />
+          ))}
+            <Grid item xs={12} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
+              <SplatterChart />
             </Grid>
           </Grid>
         </Grid>
@@ -29,18 +41,18 @@ function Main() {
           <Grid container>
             <Grid item xs={12}>
               <Grid container>
-                <Grid item xs={6} style={{ padding: 10, height: 'calc((100vh - 94px) / 3)' }}>
-                  <MenuComponent />
+                <Grid item xs={6} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
+                  <DiscChart />
                 </Grid>
-                <Grid item xs={6} style={{ padding: 10, height: 'calc((100vh - 94px) / 3)' }}>
-                  <MenuComponent />
+                <Grid item xs={6} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
+                  <LineChart />
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item xs={12} style={{ padding: 10, height: 'calc(((100vh - 94px) / 3) * 2)' }}>
-            <MenuComponent />
+            <Grid item xs={12} style={{ padding: 10, height: `calc(((100vh - (64px + ${p}px * 2)) / 3) * 2)` }}>
+            <LineChart title={titles} img={imgs} />
             </Grid>
           </Grid>
         </Grid>
