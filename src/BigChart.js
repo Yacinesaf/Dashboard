@@ -5,8 +5,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 
-
-function LineChart({ img }) {
+function BigChart({ img, title }) {
   const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
@@ -23,36 +22,35 @@ function LineChart({ img }) {
   const updatingPeriod = (e) => {
     setPeriod(e)
   }
-
-
+  console.log(title)
   return (
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
       <Grid container>
-        <Grid item xs={12} style={{ boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', marginBottom : 10 }}>
+        <Grid item xs={12} style={{ boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', marginBottom: 10 }}>
           <Grid container justify='center'>
-            <Grid item xs={10} style={{ paddingTop: 15, paddingBottom: 15 }}>
+            <Grid item xs={11} style={{ paddingTop: 15, paddingBottom: 15 }}>
               <div style={{ display: 'flex' }}>
                 <div style={{ flexGrow: 1 }}>
                   <Typography variant='subtitle2'>
-                    Region Share
-                  </Typography>
+                    Performance
+              </Typography>
                 </div>
-                <div style={{ display: mdDown ? 'none' : 'flex' }}>
+                <div style={{ display: xsOnly ? 'none' : 'flex' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Day
-                  </Typography>
+              </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Month
-                  </Typography>
+              </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Year
-                  </Typography>
+              </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     5 Year
-                  </Typography>
+              </Typography>
                 </div>
-                <div style={{ display: mdDown ? 'flex' : 'none' }}>
+                <div style={{ display: xsOnly ? 'flex' : 'none' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     {period}
                   </Typography>
@@ -86,12 +84,12 @@ function LineChart({ img }) {
             </Grid>
           </Grid>
         </Grid>
-          <div style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', height: 180, width: '100%' }}>
-          </div>
-      </Grid >
-    </Card >
+        <div style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', height: 'calc(100% - 54px)' }}>
+        </div>
+      </Grid>
+    </Card>
   )
 }
 
 
-export default LineChart;
+export default BigChart;

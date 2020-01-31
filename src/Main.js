@@ -6,7 +6,8 @@ import UsersRevenue from './UsersRevenue'
 import SplatterChart from './SplatterChart'
 import DiscChart from './DiscChart'
 import LineChart from './LineChart';
-
+import img2 from './graphic3.png'
+import BigChart from './BigChart';
 
 
 function Main() {
@@ -18,8 +19,8 @@ function Main() {
   }
 
   let p = 40;
-  const titles = ['Region Share', 'Performance']
-  const imgs = [1,2]
+
+
 
   return (
     <div >
@@ -45,14 +46,14 @@ function Main() {
                   <DiscChart />
                 </Grid>
                 <Grid item xs={6} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
-                  <LineChart />
+                  <LineChart img={img2} period={period} updatingPeriod={updatingPeriod}/>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
           <Grid container>
             <Grid item xs={12} style={{ padding: 10, height: `calc(((100vh - (64px + ${p}px * 2)) / 3) * 2)` }}>
-            <LineChart title={titles} img={imgs} />
+            <BigChart />
             </Grid>
           </Grid>
         </Grid>

@@ -12,7 +12,7 @@ function SplatterChart() {
   return (
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
-      <div style={{ display: 'flex', padding: 15, boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', paddingRight: 25, paddingLeft: 25 }}>
+      <div style={{ display: 'flex', padding: 15, boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', paddingRight: 25, paddingLeft: 25, marginBottom : 10 }}>
         <div style={{ flexGrow: 1 }}>
           <Typography variant ='subtitle2'>
             Products
@@ -27,7 +27,7 @@ function SplatterChart() {
         <ListIcon style={{flexGrow : 1}}/>
         <BubbleChartIcon />
       </div>
-      <div style={{backgroundImage : `url(${img})`, backgroundPosition : 'center', backgroundSize : 'cover'}}>
+      <div style={{backgroundImage : `url(${img})`, backgroundPosition : 'center', backgroundSize : 'contain', backgroundRepeat : 'no-repeat', height : 'calc(100% - 54px)'}}>
       </div>
     </Card>
   )
