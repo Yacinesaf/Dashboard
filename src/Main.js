@@ -29,8 +29,8 @@ function Main() {
         <Grid item xs={4}>
           <Grid container>
           {type.map((x, i) => (
-            <Grid item xs={12} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
-              <UsersRevenue key={i} type={x} period={period} updatingPeriod={updatingPeriod} />
+            <Grid key={i} item xs={12} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
+              <UsersRevenue  type={x} period={period} updatingPeriod={updatingPeriod} />
             </Grid>
           ))}
             <Grid item xs={12} style={{ padding: 10, height: `calc((100vh - (64px + ${p}px * 2)) / 3)` }}>
@@ -56,6 +56,13 @@ function Main() {
             <BigChart />
             </Grid>
           </Grid>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item md={12}>
+            
+        </Grid>
+        <Grid item md={12}>
         </Grid>
       </Grid>
     </div>
