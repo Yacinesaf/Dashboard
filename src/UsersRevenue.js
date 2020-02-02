@@ -6,12 +6,16 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 
-function MenuComponent({ period, updatingPeriod, type }) {
+function MenuComponent({ type }) {
 
   const theme = useTheme();
   const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
   const [anchorEl, setAnchorEl] = useState(null);
+  const [period, setPeriod] = useState('Last 7 days')
+  const updatingPeriod = (e) => {
+    setPeriod(e)
+  }
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
