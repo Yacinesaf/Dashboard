@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Line} from 'react-chartjs-2';
 
 class Chart extends Component{
   constructor(props){
@@ -14,12 +14,14 @@ class Chart extends Component{
                 fill: false,
                 label:'Population',
                 data:[
-                  617594,
-                  181045,
-                  153060,
-                  106519,
-                  105162,
-                  95072
+                  1100,
+                  747,
+                  123,
+                  400,
+                  1145,
+                  345,
+                  2000,
+                  
                 ],
                 backgroundColor:[
                   'rgba(255, 99, 132, 0.6)',
@@ -32,7 +34,7 @@ class Chart extends Component{
                 ]
               }
             ]
-      }
+      },
   }
 }
 
@@ -40,11 +42,9 @@ class Chart extends Component{
   render(){
     return (
       <div className="chart">
-
-
         <Line
-          height={165}
-          width={499}
+          height={380}
+          width={850}
           data={this.state.chartData}
           options={{
             elements : {

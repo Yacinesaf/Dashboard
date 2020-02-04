@@ -10,7 +10,7 @@ function HorizentalAppBar() {
     <div>
       <Toolbar style={{backgroundColor: 'white', width: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', padding: 0, minHeight: 64 }}>
         <Grid container>
-          <Grid item xs={12} style={{display : 'flex' ,paddingLeft : 25, paddingRight : 25 }}>
+          <Grid item xs={12} style={{display : 'flex' ,paddingLeft : 40, paddingRight : 40 }}>
             <div style={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
               <SearchIcon fontSize='large' style={{ color: '#b8bcbf' }} />
             </div>

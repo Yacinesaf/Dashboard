@@ -82,7 +82,6 @@ function BigChart({ img, title }) {
                   updatingPeriod(e.target.innerText);
                   handleClose();
                 }}>5 Year</MenuItem>
-                <MenuItem onClick={handleClose}></MenuItem>
               </Menu>
             </Grid>
           </Grid>
