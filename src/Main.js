@@ -13,8 +13,8 @@ import BigChart from './BigChart';
 
 function Main() {
 
-  const theme = useTheme();
   const type = ['Revenue', 'New Users']
+  const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));
 
 

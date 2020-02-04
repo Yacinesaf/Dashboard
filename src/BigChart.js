@@ -39,21 +39,21 @@ function BigChart({ img, title }) {
                     Performance
               </Typography>
                 </div>
-                <div style={{ display: xsOnly ? 'none' : 'flex' }}>
+                <div style={{ display: mdDown ? 'none' : 'flex' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Day
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Month
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Year
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     5 Year
-              </Typography>
+                  </Typography>
                 </div>
-                <div style={{ display: xsOnly ? 'flex' : 'none' }}>
+                <div style={{ display: mdDown ? 'flex' : 'none' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     {period}
                   </Typography>
@@ -86,8 +86,8 @@ function BigChart({ img, title }) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item >
-        <Chart />
+        <Grid item xs={12} >
+          <Chart />
         </Grid>
       </Grid>
     </Card>
