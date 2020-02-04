@@ -3,6 +3,7 @@ import { Typography, Card, Menu, MenuItem, Grid } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Chart from './Chart';
 
 
 function BigChart({ img, title }) {
@@ -22,7 +23,9 @@ function BigChart({ img, title }) {
   const updatingPeriod = (e) => {
     setPeriod(e)
   }
-  console.log(title)
+
+
+
   return (
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
@@ -84,8 +87,9 @@ function BigChart({ img, title }) {
             </Grid>
           </Grid>
         </Grid>
-        <div style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', height: 'calc(100% - 54px)' }}>
-        </div>
+        <Grid item >
+        <Chart />
+        </Grid>
       </Grid>
     </Card>
   )

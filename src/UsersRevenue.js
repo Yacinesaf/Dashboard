@@ -6,13 +6,16 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 
-function MenuComponent({ period, updatingPeriod, type }) {
+function MenuComponent({ type }) {
 
   const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
   const [anchorEl, setAnchorEl] = useState(null);
-
+  const [period, setPeriod] = useState('Last 7 days')
+  const updatingPeriod = (e) => {
+    setPeriod(e)
+  }
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
@@ -49,7 +52,7 @@ function MenuComponent({ period, updatingPeriod, type }) {
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
       <CardHeader
-        style={{boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)'}}
+        style={{boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', padding : 14}}
         title={type}
         titleTypographyProps={{ variant: 'subtitle2' }}
         action={
