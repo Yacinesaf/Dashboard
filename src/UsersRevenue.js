@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Typography, Menu, MenuItem, IconButton, Card, Grid } from '@material-ui/core';
+import { Typography, Menu, MenuItem, IconButton, Card, Grid, CardContent, CardHeader } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -9,7 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 function MenuComponent({ type }) {
 
   const theme = useTheme();
-  const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
+  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   const xsOnly = useMediaQuery(theme.breakpoints.only('xs'));
   const [anchorEl, setAnchorEl] = useState(null);
   const [period, setPeriod] = useState('Last 7 days')
@@ -52,57 +52,52 @@ function MenuComponent({ type }) {
   return (
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
-      <Grid container>
-        <Grid item xs={12} style={{ boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', marginBottom: 10 }}>
-          <Grid container justify='center'>
-            <Grid item xs={10} style={{ paddingTop: lgDown ? 10 : 15, paddingBottom: lgDown ? 10 : 15, display: 'flex' }}>
-              <div style={{ flexGrow: 1 }}>
-                <Typography variant='subtitle2'>
-                  {type}
-                </Typography>
-              </div>
-              <div style={{ display: 'flex' }}>
-                <Typography variant='subtitle2'>
-                  {period}
-                </Typography>
-                <IconButton style={{ padding: 0 }} onClick={handleClick}>
-                  <ArrowDropDownIcon />
-                </IconButton>
-                <Menu
-                  id="simple-menu"
-                  anchorEl={anchorEl}
-                  keepMounted
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={(e) => {
-                    updatingPeriod(e.target.innerText);
-                    handleClose();
-                  }}>Last 7 days</MenuItem>
-                  <MenuItem onClick={(e) => {
-                    updatingPeriod(e.target.innerText);
-                    handleClose();
-                  }}>Last 30 days</MenuItem>
-                  <MenuItem onClick={(e) => {
-                    updatingPeriod(e.target.innerText);
-                    handleClose();
-                  }}>Last 90 days</MenuItem>
-                  <MenuItem onClick={handleClose}></MenuItem>
-                </Menu>
-              </div>
-            </Grid>
+      <CardHeader
+        style={{boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)', padding : 14}}
+        title={type}
+        titleTypographyProps={{ variant: 'subtitle2' }}
+        action={
+          <div style={{display : 'flex'}}  onClick={handleClick}>
+            <Typography style={{paddingTop : 11}} variant='subtitle2'>
+              {period}
+            </Typography>
+            <ArrowDropDownIcon style={{paddingTop : 11}}/> 
+          </div>
+        }
+      />
+      <CardContent style={{height : 'calc(100% - 59px)', padding : 0}}>
+        <Grid container justify='center' alignContent='center' style={{height : '100%'}}>
+          <Grid item>
+            <Typography variant={mdDown ? 'h5' : 'h4'} style={{ fontWeight: 500, textAlign: "center" }}>
+              {whatValueToShow(type, period)}
+            </Typography>
+            <Typography variant={mdDown ? 'h6' : 'h5'} style={{ color: '#6daca0', fontWeight: 500, textAlign: 'center' }}>
+              +2.7%
+          </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={12} style={{paddingTop : lgDown ? 5 : 30}}>
-          <Typography variant={lgDown ? 'h4' : 'h2'} style={{ fontWeight: 400, textAlign: "center" }}>
-            {whatValueToShow(type, period)}
-          </Typography>
-          <Typography variant={lgDown ? 'h6' : 'h4'} style={{ color: '#6daca0', fontWeight: 500, textAlign: 'center' }}>
-            +2.7%
-          </Typography>
-        </Grid>
-      </Grid>
-    </Card>
+      </CardContent>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={(e) => {
+          updatingPeriod(e.target.innerText);
+          handleClose();
+        }}>Last 7 days</MenuItem>
+        <MenuItem onClick={(e) => {
+          updatingPeriod(e.target.innerText);
+          handleClose();
+        }}>Last 30 days</MenuItem>
+        <MenuItem onClick={(e) => {
+          updatingPeriod(e.target.innerText);
+          handleClose();
+        }}>Last 90 days</MenuItem>
+      </Menu>
+    </Card >
   )
 }
 

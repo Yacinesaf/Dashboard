@@ -81,7 +81,6 @@ function LineChart({ img }) {
                   updatingPeriod(e.target.innerText);
                   handleClose();
                 }}>5 Year</MenuItem>
-                <MenuItem onClick={handleClose}></MenuItem>
               </Menu>
             </Grid>
           </Grid>

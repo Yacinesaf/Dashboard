@@ -3,6 +3,7 @@ import { Typography, Card, Menu, MenuItem, Grid } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Chart from './Chart';
 
 
 function BigChart({ img, title }) {
@@ -22,7 +23,9 @@ function BigChart({ img, title }) {
   const updatingPeriod = (e) => {
     setPeriod(e)
   }
-  console.log(title)
+
+
+
   return (
 
     <Card style={{ height: '100%', boxShadow: '0 4px 12px 0 rgba(0, 0, 0, 0.05)' }}>
@@ -36,21 +39,21 @@ function BigChart({ img, title }) {
                     Performance
               </Typography>
                 </div>
-                <div style={{ display: xsOnly ? 'none' : 'flex' }}>
+                <div style={{ display: mdDown ? 'none' : 'flex' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Day
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Month
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     Year
-              </Typography>
+                  </Typography>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     5 Year
-              </Typography>
+                  </Typography>
                 </div>
-                <div style={{ display: xsOnly ? 'flex' : 'none' }}>
+                <div style={{ display: mdDown ? 'flex' : 'none' }}>
                   <Typography variant='subtitle2' style={{ paddingRight: 10 }}>
                     {period}
                   </Typography>
@@ -79,13 +82,13 @@ function BigChart({ img, title }) {
                   updatingPeriod(e.target.innerText);
                   handleClose();
                 }}>5 Year</MenuItem>
-                <MenuItem onClick={handleClose}></MenuItem>
               </Menu>
             </Grid>
           </Grid>
         </Grid>
-        <div style={{ backgroundImage: `url(${img})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', height: 'calc(100% - 54px)' }}>
-        </div>
+        <Grid item xs={12} >
+          <Chart />
+        </Grid>
       </Grid>
     </Card>
   )
