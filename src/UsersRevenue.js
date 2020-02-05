@@ -67,10 +67,10 @@ function MenuComponent({ type }) {
       <CardContent style={{height : 'calc(100% - 59px)', padding : 0}}>
         <Grid container justify='center' alignContent='center' style={{height : '100%'}}>
           <Grid item>
-            <Typography variant={mdDown ? 'h4' : 'h2'} style={{ fontWeight: 400, textAlign: "center" }}>
+            <Typography variant={mdDown ? 'h5' : 'h4'} style={{ fontWeight: 500, textAlign: "center" }}>
               {whatValueToShow(type, period)}
             </Typography>
-            <Typography variant={mdDown ? 'h6' : 'h4'} style={{ color: '#6daca0', fontWeight: 500, textAlign: 'center' }}>
+            <Typography variant={mdDown ? 'h6' : 'h5'} style={{ color: '#6daca0', fontWeight: 500, textAlign: 'center' }}>
               +2.7%
           </Typography>
           </Grid>
